@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aiko - Tsundere Assistant</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chatbox {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 0 20px #ff99cc;
+            text-align: center;
+        }
+
+        h2 {
+            color: #cc0066;
+        }
+
+        input[type="text"] {
+            width: 85%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid #ff99cc;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-weight: bold;
+            background: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .reply {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #cc0066;
+            min-height: 40px;
+        }
+
+        audio {
+            margin-top: 15px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <h2>💢 Aiko - Your Tsundere Assistant 💢</h2>
+        <form method="POST">
+            <input type="text" name="user_input" placeholder="Say something to Aiko..." autocomplete="off" required>
+            <br>
+            <input type="submit" value="Talk">
+        </form>
+        <div class="reply">{{ reply }}</div>
+
+        {% if audio_file %}
+        <audio autoplay>
+            <source src="{{ audio_file }}" type="audio/mpeg">
+            Your browser doesn't support audio playback.
+        </audio>
+        {% endif %}
+    </div>
+</body>
+</html>
